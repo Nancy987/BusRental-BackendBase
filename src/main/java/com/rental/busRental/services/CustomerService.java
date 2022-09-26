@@ -35,5 +35,13 @@ public class CustomerService {
     }
 
 
+    public void removeCustomerBy(Long custId) {
+        try{
+            Customer customer = customerRepository.getReferenceById(custId);
+            customerRepository.delete(customer);
 
+        }
+        catch(Exception e){
+        }
+    }
 }
