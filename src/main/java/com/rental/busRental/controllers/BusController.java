@@ -1,7 +1,6 @@
 package com.rental.busRental.controllers;
 
 import com.rental.busRental.models.Bus;
-import com.rental.busRental.models.Bus;
 import com.rental.busRental.services.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,5 +39,10 @@ public class BusController {
     public ResponseEntity<String> deleteBus(@PathVariable("busId") Long id){
         busService.deleteBus(id);
         return new ResponseEntity<String>("Bus is deleted successfully.",HttpStatus.OK);
+    }
+
+    @PutMapping("{busId}")
+    public ResponseEntity<Bus> updateBusbyId(@PathVariable("busId") Long id, @RequestBody Bus bus) {
+        return new ResponseEntity<Bus>(busService.updateBus(bus,id), HttpStatus.OK);
     }
 }

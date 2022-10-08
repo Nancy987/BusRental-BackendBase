@@ -25,13 +25,13 @@ public class Bus {
 
     private int availableSeats;
 
-    private int contactNumber;
+    private Long contactNumber;
 
     public Bus(){
 
     }
 
-    public Bus(Long busId, String busNumber, String startDestination, String endDestination, String startTime, String endTime, float ticketPrice, int totalSeats, int availableSeats, int contactNumber) {
+    public Bus(Long busId, String busNumber, String startDestination, String endDestination, String startTime, String endTime, float ticketPrice, int totalSeats, int availableSeats, Long contactNumber) {
         this.busId = busId;
         this.busNumber = busNumber;
         this.startDestination = startDestination;
@@ -116,11 +116,11 @@ public class Bus {
         this.availableSeats = availableSeats;
     }
 
-    public int getContactNumber() {
+    public Long getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(Long contactNumber) {
         this.contactNumber = contactNumber;
     }
 }
