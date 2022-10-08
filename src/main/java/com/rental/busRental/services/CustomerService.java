@@ -44,4 +44,14 @@ public class CustomerService {
         catch(Exception e){
         }
     }
+
+ 
+    public Customer updateCustomer(Customer customer, Long custId) {
+        Customer existingCustomer = customerRepository.findById(custId).orElseThrow();
+
+        existingCustomer.setCustomerName(customer.getCustomerName());
+
+        return customerRepository.save(existingCustomer);
+
+    }
 }
