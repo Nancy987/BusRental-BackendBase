@@ -1,13 +1,12 @@
 package com.rental.busRental.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
 public class Bus {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long busId;
 
     private String busNumber;
@@ -26,11 +25,13 @@ public class Bus {
 
     private int availableSeats;
 
+    private int contactNumber;
+
     public Bus(){
 
     }
 
-    public Bus(Long busId, String busNumber, String startDestination, String endDestination, String startTime, String endTime, float ticketPrice, int totalSeats, int availableSeats) {
+    public Bus(Long busId, String busNumber, String startDestination, String endDestination, String startTime, String endTime, float ticketPrice, int totalSeats, int availableSeats, int contactNumber) {
         this.busId = busId;
         this.busNumber = busNumber;
         this.startDestination = startDestination;
@@ -40,6 +41,7 @@ public class Bus {
         this.ticketPrice = ticketPrice;
         this.totalSeats = totalSeats;
         this.availableSeats = availableSeats;
+        this.contactNumber = contactNumber;
     }
 
     public Long getBusId() {
@@ -112,5 +114,13 @@ public class Bus {
 
     public void setAvailableSeats(int availableSeats) {
         this.availableSeats = availableSeats;
+    }
+
+    public int getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(int contactNumber) {
+        this.contactNumber = contactNumber;
     }
 }

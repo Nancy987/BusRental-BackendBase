@@ -1,6 +1,7 @@
 package com.rental.busRental.controllers;
 
 import com.rental.busRental.models.Bus;
+import com.rental.busRental.models.Bus;
 import com.rental.busRental.services.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

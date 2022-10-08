@@ -32,4 +32,5 @@ public class BusService {
     public void deleteBus(Long busId) {
         busRepository.deleteById(busId);
     }
+
 }
