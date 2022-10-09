@@ -1,13 +1,19 @@
 package com.rental.busRental.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name="bus")
 public class Bus {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="busId")
     private Long busId;
+
+    @OneToMany(mappedBy = "bus",cascade = CascadeType.ALL)
+    private Set<Booking> bookingSet =new HashSet<>();
 
     private String busNumber;
 
@@ -17,7 +23,7 @@ public class Bus {
 
     private String startTime;
 
-    private String endTime;
+    private String departureDate;
 
     private float ticketPrice;
 
@@ -31,13 +37,13 @@ public class Bus {
 
     }
 
-    public Bus(Long busId, String busNumber, String startDestination, String endDestination, String startTime, String endTime, float ticketPrice, int totalSeats, int availableSeats, Long contactNumber) {
+    public Bus(Long busId, String busNumber, String startDestination, String endDestination, String startTime, String departureDate, float ticketPrice, int totalSeats, int availableSeats, Long contactNumber) {
         this.busId = busId;
         this.busNumber = busNumber;
         this.startDestination = startDestination;
         this.endDestination = endDestination;
         this.startTime = startTime;
-        this.endTime = endTime;
+        this.departureDate = departureDate;
         this.ticketPrice = ticketPrice;
         this.totalSeats = totalSeats;
         this.availableSeats = availableSeats;
@@ -84,12 +90,12 @@ public class Bus {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public String getDepartureDate() {
+        return departureDate;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
     }
 
     public float getTicketPrice() {
