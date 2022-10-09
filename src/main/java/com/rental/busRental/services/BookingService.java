@@ -5,6 +5,8 @@ import com.rental.busRental.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookingService {
 
@@ -19,5 +21,13 @@ public class BookingService {
         Booking newBooking = bookingRepository.save(booking);
         return newBooking;
 
+    }
+
+    public List<Booking> getAllBookings() {
+        return bookingRepository.findAll();
+    }
+
+    public Booking getBookingBy(Long bookingId) {
+        return bookingRepository.findById(bookingId).orElseThrow();
     }
 }
