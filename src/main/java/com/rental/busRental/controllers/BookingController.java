@@ -5,6 +5,7 @@ import com.rental.busRental.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,6 +33,12 @@ public class BookingController {
     @GetMapping("{bookingId}")
     public ResponseEntity<Booking> getBooking(@PathVariable Long bookingId){
         return new ResponseEntity<Booking>(bookingService.getBookingBy(bookingId), HttpStatus.OK);
+    }
+
+    @DeleteMapping("{bookingId}")
+    public ResponseEntity<Nullable> deleteBooking(@PathVariable Long bookingId){
+        bookingService.removeBooking(bookingId);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
 }

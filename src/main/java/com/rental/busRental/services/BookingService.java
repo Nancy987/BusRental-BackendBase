@@ -30,4 +30,10 @@ public class BookingService {
     public Booking getBookingBy(Long bookingId) {
         return bookingRepository.findById(bookingId).orElseThrow();
     }
+
+    public void removeBooking(Long bookingId) {
+        Booking booking = bookingRepository.findById(bookingId).orElseThrow();
+        bookingRepository.deleteById(bookingId);
+
+    }
 }
