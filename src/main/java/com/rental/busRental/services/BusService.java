@@ -40,7 +40,7 @@ public class BusService {
         existingBus.setStartDestination(bus.getStartDestination());
         existingBus.setEndDestination(bus.getEndDestination());
         existingBus.setStartTime(bus.getStartTime());
-        existingBus.setEndTime(bus.getEndTime());
+        existingBus.setDepartureDate(bus.getDepartureDate());
         existingBus.setTotalSeats(bus.getTotalSeats());
         existingBus.setAvailableSeats(bus.getAvailableSeats());
         existingBus.setTicketPrice(bus.getTicketPrice());
