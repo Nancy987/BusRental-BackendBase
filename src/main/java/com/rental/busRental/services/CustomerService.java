@@ -50,6 +50,8 @@ public class CustomerService {
         Customer existingCustomer = customerRepository.findById(custId).orElseThrow();
 
         existingCustomer.setCustomerName(customer.getCustomerName());
+        existingCustomer.setEmailId(customer.getEmailId());
+        existingCustomer.setPassword(customer.getPassword());
 
         return customerRepository.save(existingCustomer);
 
